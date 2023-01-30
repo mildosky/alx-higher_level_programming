@@ -1,50 +1,75 @@
 #!/usr/bin/python3
-"""
-Defines a class Rectangle
-"""
+
+'''module: 2-rectangle
+This is a Rectangle class.
+'''
 
 
 class Rectangle:
-    """Representation of a rectangle"""
+    '''class: Rectangle this is an empty class
+    '''
+
     def __init__(self, width=0, height=0):
-        """Initializes the rectangle"""
-        self.width = width
-        self.height = height
+        '''method: __init__
+        initialize instance of Rectangle
+        '''
+        self.__width = width
+        self.__height = height
 
     @property
     def width(self):
-        """getter for the private instance attribute width"""
+        '''method: set_width getter
+        '''
+        if (not isinstance(self.__width, int)) or isinstance(self.__width,
+                                                             bool):
+            raise TypeError("width must be an integer")
+        if self.__width < 0:
+            raise ValueError("width must be >= 0")
         return self.__width
 
     @width.setter
-    def width(self, value):
-        """setter for the private instance attribute width"""
-        if type(value) is not int:
+    def width(self, width):
+        '''method: set_width setter
+        '''
+        if not isinstance(self.__width, int) or isinstance(self.__width, bool):
             raise TypeError("width must be an integer")
-        if value < 0:
+        if self.__width < 0:
             raise ValueError("width must be >= 0")
-        self.__width = value
+        self.__width = width
 
     @property
     def height(self):
-        """getter for the private instance attribute height"""
+        '''method: set_height getter
+        '''
+        if (not isinstance(self.__height, int)) or isinstance(self.__height,
+                                                              bool):
+            raise TypeError("height must be an integer")
+        if self.__height < 0:
+            raise ValueError("height must be >= 0")
         return self.__height
 
     @height.setter
-    def height(self, value):
-        """setter for the private instance attribute height"""
-        if type(value) is not int:
+    def height(self, height):
+        '''method: set_height
+        setter
+        '''
+        if not isinstance(self.__height, int) or isinstance(self.__height,
+                                                            bool):
             raise TypeError("height must be an integer")
-        if value < 0:
+        if self.__height < 0:
             raise ValueError("height must be >= 0")
-        self.__height = value
+        self.__height = height
 
+    """
+    Calculate area of Rectangle.
+    """
     def area(self):
-        """returns the area of the rectangle"""
-        return self.__width * self.__height
+        return self.__height * self.__width
 
+    """
+    Calculate perimeter of Rectangle object.
+    """
     def perimeter(self):
-        """returns the perimeter of the rectangle"""
-        if self.__width == 0 or self.__height == 0:
+        if self.__height == 0 or self.width == 0:
             return 0
-        return (self.__width * 2) + (self.__height * 2)
+        return (self.__height + self.width) * 2
