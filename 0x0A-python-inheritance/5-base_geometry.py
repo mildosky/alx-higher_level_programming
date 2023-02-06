@@ -1,9 +1,11 @@
 #!/usr/bin/python3
 """
-Contains the class BaseGeometry
+    5-base_geometry: class BaseGeometry
 """
 
 
 class BaseGeometry:
-    """An empty class"""
+    """
+        An empty class.
+    """
     pass
