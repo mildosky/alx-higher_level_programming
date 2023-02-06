@@ -1,10 +1,13 @@
 #!/usr/bin/python3
-""" add_attribute module """
+"""
+    101-add_attribute: add_attribute()
+"""
 
 
-def add_attribute(prmObject, prmName, prmValue):
-    """ add_attribute function """
-    if not hasattr(prmObject, "__dict__"):
+def add_attribute(cls, name, value):
+    """
+        adds a new attribute if possible.
+    """
+    if hasattr(cls, "__dict__") is False:
         raise TypeError("can't add new attribute")
-    if (not hasattr(prmObject, prmName)):
-        prmObject.__setattr__(prmName, prmValue)
+    setattr(cls, name, value)
