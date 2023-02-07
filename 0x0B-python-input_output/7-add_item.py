@@ -20,4 +20,4 @@ if __name__ == "__main__":
 
     for arg in sys.argv[1:]:
         arg_list.append(arg)
-    save_to_json_file(arg_list, filename)
+    save_to_json_file(arg_list, filename) 
